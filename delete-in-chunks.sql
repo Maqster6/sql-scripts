@@ -6,7 +6,6 @@ SET @r = 1;
  
 WHILE @r > 0
 BEGIN
-  BEGIN TRANSACTION;
  
   DELETE TOP (1000)
     FROM OutboxRecord 
@@ -14,6 +13,4 @@ BEGIN
  
   SET @r = @@ROWCOUNT;
   Print @r
- 
-  COMMIT TRANSACTION;
 END
